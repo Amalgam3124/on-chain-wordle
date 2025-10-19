@@ -24,7 +24,7 @@ A On-chain Wordle game with Hardhat contracts and a Next.js frontend. Guesses ar
     │   ├── deploy\                    # Deployment scripts
     │   │   └── deploy.ts               # hardhat-deploy entry script
     │   ├── deployments\               # Deployment records (addresses/ABIs)
-    │   │   └── sepolia\               # Sepolia network
+    │   │   └── Amoy\                   # Amoy network
     │   │       ├── .chainId            # Cached chain ID
     │   │       ├── Wordle.json         # Wordle deployment info
     │   │       ├── DailyPuzzleNFT.json # DailyPuzzleNFT deployment info
