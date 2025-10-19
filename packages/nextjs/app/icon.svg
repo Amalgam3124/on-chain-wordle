@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Wordle app icon">
+  <defs>
+    <style>
+      .g { fill: #6AAA64; } /* green */
+      .y { fill: #C9B458; } /* yellow */
+      .x { fill: #787C7E; } /* gray */
+      .bg { fill: #111827; }
+    </style>
+  </defs>
+  <rect width="64" height="64" class="bg"/>
+  <!-- Row of 5 tiles reminiscent of Wordle -->
+  <rect class="tile g" x="3"  y="28" width="10" height="10" rx="0" ry="0" />
+  <rect class="tile y" x="15" y="28" width="10" height="10" rx="0" ry="0" />
+  <rect class="tile x" x="27" y="28" width="10" height="10" rx="0" ry="0" />
+  <rect class="tile g" x="39" y="28" width="10" height="10" rx="0" ry="0" />
+  <rect class="tile y" x="51" y="28" width="10" height="10" rx="0" ry="0" />
+</svg>

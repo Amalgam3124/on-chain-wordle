@@ -1,0 +1,20 @@
+{
+  "extends": "solhint:recommended",
+  "plugins": [],
+  "rules": {
+    "compiler-version": ["error", "^0.8.27"],
+    "func-visibility": ["error", { "ignoreConstructors": true }],
+    "max-line-length": "off",
+    "no-empty-blocks": "off",
+    "quotes": "off",
+    "use-natspec": "off",
+    "explicit-types": "off",
+    "gas-increment-by-one": "off",
+    "gas-strict-inequalities": "off",
+    "gas-small-strings": "off",
+    "function-max-lines": "off",
+    "gas-custom-errors": "off",
+    "gas-indexed-events": "off",
+    "no-global-import": "off"
+  }
+}

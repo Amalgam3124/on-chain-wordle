@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global card-style dark theme helper styles */
+:root {
+  color-scheme: dark;
+  /* Mobile viewport fix variable */
+  --vh: 1vh;
+}
+
+body {
+  background-color: #111827; /* gray-900 */
+}
+
+/* Card shadow and radius */
+.card {
+  @apply bg-gray-800/80 backdrop-blur rounded-2xl shadow-lg border border-gray-700;
+}
+
+/* Button base styles */
+.btn {
+  @apply inline-flex items-center justify-center font-bold rounded-md transition-colors;
+}
+.btn-primary { @apply bg-blue-600 hover:bg-blue-500 text-white; }
+.btn-danger { @apply bg-red-600 hover:bg-red-500 text-white; }
+.btn-muted { @apply bg-gray-700 hover:bg-gray-600 text-white; }
+
+/* Wordle palette (dark) */
+:root {
+  --wordle-bg: #0b0e0f;
+  --wordle-panel: #121314;
+  --wordle-border: #3a3a3c;
+  --wordle-key: #818384;
+  --wordle-key-hover: #a4a6a8;
+  --wordle-absent: #3a3a3c;
+  --wordle-present: #b59f3b;
+  --wordle-correct: #538d4e;
+}
+
+.wordle-root {
+  background: var(--wordle-bg);
+  /* Use dynamic viewport height to prevent keyboard overlay issues */
+  min-height: calc(var(--vh) * 100);
+}
+
+.wordle-card {
+  max-width: min(680px, 94vw);
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 24px) clamp(12px, 2.5vw, 16px) clamp(24px, 4vw, 32px);
+}
+
+/* Grid */
+.wordle-grid-row {
+  display: flex;
+  gap: clamp(6px, 1.8vw, 8px);
+  justify-content: center;
+  margin-bottom: clamp(6px, 1.8vw, 8px);
+}
+.wordle-cell {
+  width: clamp(42px, 11vw, 62px);
+  height: clamp(42px, 11vw, 62px);
+  border: 2px solid var(--wordle-border);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: clamp(20px, 5vw, 28px);
+  color: #fff;
+  background: #121314;
+}
+.wordle-cell.absent { background: var(--wordle-absent); }
+.wordle-cell.present { background: var(--wordle-present); }
+.wordle-cell.correct { background: var(--wordle-correct); }
+
+/* Keyboard */
+.wordle-kb { margin-top: clamp(12px, 3vw, 22px); }
+/* Equal layout: compute unit width per row to avoid overflow */
+.wordle-kb-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(6px, 1.8vw, 8px);
+  gap: var(--kb-gap, clamp(6px, 1.8vw, 8px));
+  --kb-gap: clamp(6px, 1.8vw, 8px);
+  --keys: 10; /* Default, overridden by specific row */
+  /* Unit width: total width minus gaps, divided by key count */
+  --unit: calc((100% - (var(--keys) - 1) * var(--kb-gap)) / var(--keys));
+}
+.wordle-kb-row.row-10 { --keys: 10; }
+.wordle-kb-row.row-9 { --keys: 9; }
+/* Third row: two large keys 1.5 units, seven regular 1 unit; total 10 units */
+.wordle-kb-row.row-10-balanced { --keys: 10; }
+
+.key {
+  box-sizing: border-box;
+  flex: 0 0 calc(var(--unit) * var(--span, 1));
+  height: clamp(34px, 8.5vw, 52px);
+  min-width: 0; /* Allow shrinking on narrow screens */
+  padding: 0 clamp(6px, 2vw, 12px);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: clamp(12px, 3.2vw, 18px);
+  color: #fff;
+  background: var(--wordle-key);
+  transition: background-color .15s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevent text overflow */
+  white-space: nowrap; /* Single line to pair with auto-scaling */
+}
+/* Large key spans columns: 1.5 unit width */
+.key.large { --span: 1.5; }
+.key:hover { background: var(--wordle-key-hover); }
+.key.absent { background: var(--wordle-absent); }
+.key.present { background: var(--wordle-present); }
+.key.correct { background: var(--wordle-correct); }
+
+/* Helper */
+.wordle-text-muted { color: #d1d5db; }

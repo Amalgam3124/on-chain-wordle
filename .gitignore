@@ -1,0 +1,41 @@
+# Node / npm
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Build outputs
+packages/nextjs/.next/
+packages/nextjs/out/
+packages/hardhat/artifacts/
+packages/hardhat/cache/
+
+# Env files
+.env
+.env.*
+packages/hardhat/.env
+packages/hardhat/.env.*
+packages/nextjs/.env.local
+packages/nextjs/.env.*
+
+# Misc
+.DS_Store
+Thumbs.db
+
+# Coverage / reports
+coverage/
+coverage-*
+*.lcov
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
+packages/hardhat/fhevmTemp/
+packages/hardhat/types
